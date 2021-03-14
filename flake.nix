@@ -1,7 +1,7 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.naersk.url = "github:nmattia/naersk";
-  
+
   outputs = { self, nixpkgs, naersk }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -12,15 +12,20 @@
       mkJellyfin = import ./pkgs/jellyfin.nix;
     in rec {
       packages."x86_64-linux" = {
-        updater = with pkgs; naersk-lib.buildPackage {
-          pname = "updater";
-          root = ./.;
+        updater = with pkgs;
+          naersk-lib.buildPackage {
+            pname = "updater";
+            root = ./.;
 
-          nativeBuildInputs = [ pkg-config ];
-          buildInputs = [ openssl ];
-        };
+            nativeBuildInputs = [ pkg-config ];
+            buildInputs = [ openssl ];
+          };
 
-        sonarr = pkgs.callPackage (mkSonarr versions.sonarr) { };
+        sonarr = pkgs.callPackage (mkSonarr versions.sonarr.v3-stable) { };
+        sonarr-nightly =
+          pkgs.callPackage (mkSonarr versions.sonarr.v3-nightly) { };
+        sonarr-preview =
+          pkgs.callPackage (mkSonarr versions.sonarr.v3-preview) { };
 
         radarr = pkgs.callPackage (mkRadarr versions.radarr.master) { };
         radarr-develop =

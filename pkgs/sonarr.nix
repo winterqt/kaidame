@@ -5,9 +5,7 @@ stdenv.mkDerivation rec {
   version = manifest.version;
 
   src = fetchurl {
-    url =
-      "https://download.sonarr.tv/v3/phantom-develop/${version}/Sonarr.phantom-develop.${version}.linux.tar.gz";
-    inherit (manifest) sha256;
+    inherit (manifest) url sha256;
   };
 
   nativeBuildInputs = [ makeWrapper ];
