@@ -16,8 +16,8 @@ let
     buildInputs = [ stdenv.cc.cc zlib lttngUst curl ];
 
     installPhase = ''
-      mkdir -p $out/bin $out/radarr
-      cp -r * $out/radarr
+      mkdir -p $out/bin $out/radarr/bin
+      cp -r * $out/radarr/bin
       echo "${''
         PackageAuthor=[kaidame](https://github.com/winterqt/kaidame)
         UpdateMethod=External
@@ -25,7 +25,7 @@ let
         Branch=${manifest.branch}
         PackageVersion=${version}
       ''}" > $out/radarr/package_info
-      makeWrapper $out/radarr/Radarr $out/bin/Radarr --prefix LD_LIBRARY_PATH : "${
+      makeWrapper $out/radarr/bin/Radarr $out/bin/Radarr --prefix LD_LIBRARY_PATH : "${
         lib.makeLibraryPath [ icu openssl sqlite libmediainfo ]
       }"
     '';
