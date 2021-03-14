@@ -33,6 +33,7 @@
         radarr-nightly =
           pkgs.callPackage (mkRadarr versions.radarr.nightly) { };
 
+        jellyfin = pkgs.callPackage (mkJellyfin versions.jellyfin.stable) { };
         jellyfin-rc =
           pkgs.callPackage (mkJellyfin versions.jellyfin.stable-rc) { };
       };
