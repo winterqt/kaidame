@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
       PackageAuthor=[kaidame](https://github.com/winterqt/kaidame)
       UpdateMethod=External
       UpdateMethodMessage=check the commit log and run \`nix flake update\`
-      Branch=main
+      Branch=${manifest.branch}
       PackageVersion=${version}
     ''}" > $out/sonarr/package_info
     makeWrapper ${mono}/bin/mono $out/bin/Sonarr --add-flags $out/sonarr/Sonarr.exe --prefix LD_LIBRARY_PATH : "${
