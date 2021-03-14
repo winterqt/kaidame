@@ -1,5 +1,1 @@
-{
-    "sonarr": {},
-    "radarr": {},
-    "jellyfin": {}
-}
+{"sonarr":{},"radarr":{},"jellyfin":{"stable":{"version":"10.7.0","url":"https://repo.jellyfin.org/releases/server/linux/stable/combined/jellyfin_10.7.0.tar.gz","sha256":"sha256-8CPAq6EH5gu34/QRev9yFRABsB2qlPKoHYZDlaWeuvU="}}}
