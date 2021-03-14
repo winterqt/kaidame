@@ -77,8 +77,7 @@ fn main() {
     )
     .unwrap();
 
-    let software: &[Box<dyn ManifestUpdater>; 3] =
-        &[Box::new(Jellyfin), Box::new(Sonarr), Box::new(Radarr)];
+    let software: &[&dyn ManifestUpdater; 3] = &[&Jellyfin, &Sonarr, &Radarr];
 
     for software in software {
         software
