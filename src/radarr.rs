@@ -34,6 +34,7 @@ impl ManifestUpdater for Radarr {
                         version: latest.version.clone(),
                         url: latest.url.clone(),
                         sha256: calculate_sha256(ureq::get(&latest.url).call()?.into_reader()),
+                        branch: Some(branch.to_string()),
                     },
                 );
 

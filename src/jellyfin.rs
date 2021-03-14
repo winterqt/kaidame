@@ -46,6 +46,7 @@ impl ManifestUpdater for Jellyfin {
                         version: ver.to_string(),
                         url,
                         sha256,
+                        branch: None,
                     },
                 );
 

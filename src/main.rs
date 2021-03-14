@@ -25,6 +25,8 @@ struct Version {
     version: String,
     url: String,
     sha256: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    branch: Option<String>,
 }
 
 trait ManifestUpdater {

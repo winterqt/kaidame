@@ -30,6 +30,7 @@ impl ManifestUpdater for Sonarr {
                         version: release.version.clone(),
                         url: release.linux.manual.url.clone(),
                         sha256: format_sha256(&hex::decode(&release.linux.manual.hash)?),
+                        branch: Some(release.branch.clone()),
                     },
                 );
 
@@ -49,6 +50,7 @@ impl ManifestUpdater for Sonarr {
 #[derive(Deserialize)]
 struct Release {
     version: String,
+    branch: String,
     linux: Artifacts,
 }
 
