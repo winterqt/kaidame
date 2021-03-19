@@ -21,7 +21,7 @@ let
       echo "${''
         PackageAuthor=[kaidame](https://github.com/winterqt/kaidame)
         UpdateMethod=External
-        UpdateMethodMessage=check the commit log and run \`nix flake update\`
+        UpdateMethodMessage=[check the commit log](https://github.com/winterqt/kaidame/commits/main) and run \`nix flake update\`
         Branch=${manifest.branch}
         PackageVersion=${version}
       ''}" > $out/radarr/package_info
