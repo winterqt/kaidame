@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     echo "${''
       PackageAuthor=[kaidame](https://github.com/winterqt/kaidame)
       UpdateMethod=External
-      UpdateMethodMessage=check the commit log and run `nix flake update`
+      UpdateMethodMessage=check the commit log and run \`nix flake update\`
       Branch=${manifest.branch}
       PackageVersion=${version}
     ''}" > $out/sonarr/package_info
