@@ -38,7 +38,7 @@ impl ManifestUpdater for Sonarr {
 
                 add_and_commit(
                     repo,
-                    &format!("sonarr: update {} to {}", branch, release.version),
+                    &format!("sonarr: update {} to {}", release.branch, release.version),
                 )?;
             }
         }
