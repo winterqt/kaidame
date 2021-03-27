@@ -1,5 +1,5 @@
 manifest:
-{ lib, buildFHSUserEnv, stdenv, fetchurl, makeWrapper }:
+{ lib, buildFHSUserEnv, stdenv, fetchurl, makeWrapper, dotnetCorePackages }:
 
 stdenv.mkDerivation rec {
   name = "jellyfin";
@@ -15,5 +15,6 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/bin $out/jellyfin
     cp -r * $out/jellyfin
+    makeWrapper ${dotnetCorePackages.aspnetcore_5_0}/bin/dotnet $out/bin/jellyfin --add-flags $out/jellyfin/jellyfin.dll
   '';
 }
