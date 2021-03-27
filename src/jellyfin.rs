@@ -28,7 +28,7 @@ impl ManifestUpdater for Jellyfin {
                 .map_or(true, |v| ver != &v.version)
             {
                 let url = format!(
-                "https://repo.jellyfin.org/releases/server/linux/{}/combined/jellyfin_{}.tar.gz",
+                "https://repo.jellyfin.org/releases/server/portable/{}/combined/jellyfin_{}.tar.gz",
                 branch.1, ver
             );
 
