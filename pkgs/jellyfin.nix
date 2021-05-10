@@ -1,5 +1,5 @@
 manifest:
-{ lib, buildFHSUserEnv, stdenv, fetchurl, makeWrapper, dotnetCorePackages }:
+{ lib, stdenv, fetchurl, makeWrapper, dotnetCorePackages }:
 
 stdenv.mkDerivation rec {
   name = "jellyfin";
