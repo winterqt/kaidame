@@ -25,7 +25,7 @@ impl ManifestUpdater for Sonarr {
                 .map_or(true, |v| release.version != v.version)
             {
                 manifest.sonarr.insert(
-                    branch.to_string(),
+                    (*branch).to_string(),
                     Version {
                         version: release.version.clone(),
                         url: release.linux.manual.url.clone(),
