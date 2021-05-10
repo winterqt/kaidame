@@ -50,6 +50,7 @@ impl ManifestUpdater for Radarr {
         Ok(())
     }
 }
+
 #[derive(Deserialize)]
 struct Change {
     version: String,

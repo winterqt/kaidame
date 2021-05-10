@@ -1,5 +1,6 @@
 manifest:
 { lib, stdenv, fetchurl, makeWrapper, mono, sqlite, libmediainfo }:
+
 stdenv.mkDerivation rec {
   name = "sonarr";
   version = manifest.version;

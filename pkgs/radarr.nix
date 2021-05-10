@@ -1,6 +1,18 @@
 manifest:
-{ lib, stdenv, fetchurl, makeWrapper, autoPatchelfHook, zlib, lttngUst, curl
-, icu, openssl, sqlite, libmediainfo }:
+{ lib
+, stdenv
+, fetchurl
+, makeWrapper
+, autoPatchelfHook
+, zlib
+, lttngUst
+, curl
+, icu
+, openssl
+, sqlite
+, libmediainfo
+}:
+
 stdenv.mkDerivation rec {
   name = "radarr";
   version = manifest.version;
