@@ -1,7 +1,7 @@
 manifest:
 { lib, stdenv, fetchurl, makeWrapper, dotnetCorePackages }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "jellyfin";
   version = manifest.version;
 

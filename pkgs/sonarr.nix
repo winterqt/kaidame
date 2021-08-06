@@ -1,7 +1,7 @@
 manifest:
 { lib, stdenv, fetchurl, makeWrapper, mono, sqlite, libmediainfo }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "sonarr";
   version = manifest.version;
 
@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
       UpdateMethod=External
       UpdateMethodMessage=[check the commit log](https://github.com/winterqt/kaidame/commits/main) and run \`nix flake update\`
       Branch=${manifest.branch}
-      PackageVersion=${version}
+      PackageVersion=${manifest.version}
     ''}" > $out/sonarr/package_info
     makeWrapper ${mono}/bin/mono $out/bin/Sonarr --add-flags $out/sonarr/bin/Sonarr.exe --prefix LD_LIBRARY_PATH : "${
       lib.makeLibraryPath [ sqlite libmediainfo ]

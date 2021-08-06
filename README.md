@@ -1,6 +1,6 @@
 # kaidame
 
-An Nix flake providing auto-updated packages for:
+A Nix flake providing auto-updated packages for:
 - [Sonarr](https://sonarr.tv)
 - [Radarr](https://radarr.video)
 - [Jellyfin](https://jellyfin.org)
