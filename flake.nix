@@ -11,7 +11,7 @@
             versions = builtins.fromJSON (builtins.readFile ./versions.json);
             mkSonarr = import ./pkgs/sonarr.nix;
             mkRadarr = import ./pkgs/radarr.nix;
-            mkJellyfin = import ./pkgs/jellyfin.nix;
+            mkJellyfin = import ./pkgs/jellyfin.nix system;
           in
 
           {
