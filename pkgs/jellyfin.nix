@@ -1,11 +1,10 @@
-system:
 manifest:
 { lib, stdenv, fetchurl, makeWrapper, autoPatchelfHook, dotnetCorePackages, fontconfig }:
 
 let
   rid = {
     "x86_64-linux" = "linux-x64";
-  }.${system};
+  }.${stdenv.hostPlatform.system};
   nativeLibsToRemove = lib.remove rid [
     "alpine-x64"
     "linux-arm"
