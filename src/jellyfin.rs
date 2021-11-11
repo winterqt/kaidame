@@ -19,8 +19,14 @@ impl ManifestUpdater for Jellyfin {
         let latest_release = releases.iter().find(|r| !r.prerelease).unwrap();
         let latest_prerelease = releases.iter().find(|r| r.prerelease).unwrap();
 
-        for branch in &[(latest_release, "stable"), (latest_prerelease, "stable-rc")] {
-            let ver = &branch.0.tag_name[1..].replace("-", "~");
+        for branch in &[
+            (latest_release, "stable"),
+            (latest_prerelease, "stable-pre"),
+        ] {
+            let (ver, ver_fn) = (
+                &branch.0.tag_name[1..],
+                &branch.0.tag_name[1..].split('-').next().unwrap(),
+            );
 
             if manifest
                 .jellyfin
@@ -28,8 +34,8 @@ impl ManifestUpdater for Jellyfin {
                 .map_or(true, |v| ver != v.version)
             {
                 let url = format!(
-                "https://repo.jellyfin.org/releases/server/portable/{}/combined/jellyfin_{}.tar.gz",
-                branch.1, ver
+                "https://repo.jellyfin.org/releases/server/portable/{}/{}/combined/jellyfin_{}.tar.gz",
+                branch.1, ver, ver_fn
             );
 
                 let sha256 = {
