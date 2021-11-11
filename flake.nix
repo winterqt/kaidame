@@ -39,6 +39,7 @@
             nativeBuildInputs = with pkgs; [
               rustc
               cargo
+              clippy
               openssl
               pkg-config
             ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ libiconv darwin.apple_sdk.frameworks.Security ]);

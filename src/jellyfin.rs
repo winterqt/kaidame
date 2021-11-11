@@ -25,7 +25,7 @@ impl ManifestUpdater for Jellyfin {
             if manifest
                 .jellyfin
                 .get(branch.1)
-                .map_or(true, |v| ver != &v.version)
+                .map_or(true, |v| ver != v.version)
             {
                 let url = format!(
                 "https://repo.jellyfin.org/releases/server/portable/{}/combined/jellyfin_{}.tar.gz",
@@ -52,7 +52,7 @@ impl ManifestUpdater for Jellyfin {
 
                 fs::write(dir.join("versions.json"), serde_json::to_vec(&manifest)?)?;
 
-                add_and_commit(&repo, &format!("jellyfin: update {} to {}", branch.1, ver))?;
+                add_and_commit(repo, &format!("jellyfin: update {} to {}", branch.1, ver))?;
             }
         }
 

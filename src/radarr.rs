@@ -41,7 +41,7 @@ impl ManifestUpdater for Radarr {
                 fs::write(dir.join("versions.json"), serde_json::to_vec(&manifest)?)?;
 
                 add_and_commit(
-                    &repo,
+                    repo,
                     &format!("radarr: update {} to {}", branch, latest.version),
                 )?;
             }

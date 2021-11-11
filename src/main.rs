@@ -1,3 +1,5 @@
+#![warn(clippy::pedantic)]
+
 use anyhow::Result;
 use git2::{build::RepoBuilder, Cred, FetchOptions, PushOptions, RemoteCallbacks, Repository};
 use serde::{Deserialize, Serialize};
