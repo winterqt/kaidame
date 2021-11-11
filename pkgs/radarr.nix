@@ -5,7 +5,7 @@ manifest:
 , makeWrapper
 , autoPatchelfHook
 , zlib
-, lttngUst
+, lttng-ust
 , curl
 , icu
 , openssl
@@ -24,7 +24,12 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ makeWrapper autoPatchelfHook ];
 
-  buildInputs = [ stdenv.cc.cc zlib lttngUst curl ];
+  buildInputs = [
+    stdenv.cc.cc
+    zlib
+    lttng-ust
+    curl
+  ];
 
   installPhase = ''
     mkdir -p $out/bin $out/radarr/bin
